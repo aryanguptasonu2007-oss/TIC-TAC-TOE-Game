@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XOXO — The Ultimate Tic-Tac-Toe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background -->
+  <div class="bg-layer">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- MAIN APP -->
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-x">X</span>
+        <span class="logo-dot">●</span>
+        <span class="logo-o">O</span>
+      </div>
+      <h1 class="title">XOXO</h1>
+      <p class="subtitle">The Arena of Minds</p>
+    </header>
+
+    <!-- Mode Selector -->
+    <div class="mode-selector" id="modeSelector">
+      <h2 class="mode-title">Choose Your Battle</h2>
+      <div class="mode-cards">
+        <div class="mode-card" id="pvpCard" onclick="selectMode('pvp')">
+          <div class="mode-icon">⚔️</div>
+          <div class="mode-label">2 Players</div>
+          <div class="mode-desc">Challenge a friend</div>
+          <div class="mode-glow"></div>
+        </div>
+        <div class="mode-card active" id="aiCard" onclick="selectMode('ai')">
+          <div class="mode-icon">🤖</div>
+          <div class="mode-label">vs AI</div>
+          <div class="mode-desc">Face the machine</div>
+          <div class="mode-glow"></div>
+        </div>
+      </div>
+
+      <!-- Difficulty (AI only) -->
+      <div class="difficulty-row" id="difficultyRow">
+        <button class="diff-btn" onclick="selectDiff('easy')" id="dEasy">Easy</button>
+        <button class="diff-btn active" onclick="selectDiff('medium')" id="dMedium">Medium</button>
+        <button class="diff-btn" onclick="selectDiff('hard')" id="dHard">Unbeatable</button>
+      </div>
+    </div>
+
+    <!-- Score Board -->
+    <div class="scoreboard">
+      <div class="score-card" id="scoreX">
+        <div class="score-symbol x-symbol">X</div>
+        <div class="score-name" id="nameX">Player X</div>
+        <div class="score-num" id="numX">0</div>
+      </div>
+      <div class="score-divider">
+        <div class="score-vs">VS</div>
+        <div class="score-draws" id="scoreDraw">0 Draws</div>
+      </div>
+      <div class="score-card" id="scoreO">
+        <div class="score-symbol o-symbol">O</div>
+        <div class="score-name" id="nameO">AI</div>
+        <div class="score-num" id="numO">0</div>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="status-bar" id="statusBar">
+      <div class="status-pulse"></div>
+      <span id="statusText">Player X's turn</span>
+    </div>
+
+    <!-- Game Board -->
+    <div class="board-wrapper">
+      <div class="board" id="board">
+        <div class="cell" data-index="0" onclick="handleClick(0)"></div>
+        <div class="cell" data-index="1" onclick="handleClick(1)"></div>
+        <div class="cell" data-index="2" onclick="handleClick(2)"></div>
+        <div class="cell" data-index="3" onclick="handleClick(3)"></div>
+        <div class="cell" data-index="4" onclick="handleClick(4)"></div>
+        <div class="cell" data-index="5" onclick="handleClick(5)"></div>
+        <div class="cell" data-index="6" onclick="handleClick(6)"></div>
+        <div class="cell" data-index="7" onclick="handleClick(7)"></div>
+        <div class="cell" data-index="8" onclick="handleClick(8)"></div>
+        <!-- Win line overlay -->
+        <svg class="win-line" id="winLine" viewBox="0 0 3 3" xmlns="http://www.w3.org/2000/svg">
+          <line id="winLineEl" x1="0" y1="0" x2="0" y2="0" stroke="white" stroke-width="0.12" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-row">
+      <button class="btn-reset" onclick="resetGame()">↺ New Game</button>
+      <button class="btn-reset btn-clear" onclick="clearScores()">✕ Reset Scores</button>
+    </div>
+
+  </div>
+
+  <!-- WIN OVERLAY -->
+  <div class="win-overlay" id="winOverlay">
+    <div class="win-box">
+      <div class="win-emoji" id="winEmoji">🏆</div>
+      <div class="win-title" id="winTitle">WINNER!</div>
+      <div class="win-sub" id="winSub">Player X dominates</div>
+      <button class="btn-play-again" onclick="resetGame()">Play Again →</button>
+      <div class="confetti-container" id="confettiContainer"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
