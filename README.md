@@ -2,7 +2,7 @@
 
 A fun and interactive **Tic-Tac-Toe** game built using **HTML, CSS, and JavaScript**.  
 This project demonstrates core web development skills and provides a classic game experience directly in the browser.  
-Play it live here: [Tic-Tac-Toe Website](https://aryanguptasonu2007-oss.github.io/<repo-name>/)
+Play it live here: [Tic-Tac-Toe Website](https://aryanguptasonu2007-oss.github.io/TIC-TAC-TOE-Game/)
 
 ---
 
